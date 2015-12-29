@@ -1,0 +1,50 @@
+.tilesWrap{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.tileBlock{
+    width: 50%;
+    height: 200px;
+    float: left;
+    position: relative;
+}
+.tileBlock__inner{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.tileBlock__inner__image{
+    background-color: aliceblue;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.tileBlock__inner__image img{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.vib{
+    animation: animation01 1s infinite 0s both;
+    -webkit-animation: animation01 1s infinite 0s both;
+    -moz-animation: animation01 1s infinite 0s both;
+}
+@keyframes animation01{
+    0%{
+        transform: rotate3d(0,0,1,0deg);
+    }
+    33%{
+        transform: rotate3d(0,0,1,10deg);
+    }
+    66%{
+        transform: rotate3d(0,0,1,-10deg);
+    }
+    100%{
+        transform: rotate3d(0,0,1,0deg);
+    }
+}
