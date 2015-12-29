@@ -43,25 +43,23 @@ SuperDiagrum.functions.prototype={
         },
         mute:function(ctx,s){
             s--;
-            var f=1;
+            var batuL=15;
             ctx.beginPath();
             ctx.fillStyle = "rgb(0,0,0)";
-            ctx.rotate( 45 * Math.PI / 180 );
-            ctx.fillRect( 
-                SuperDiagrum.settings.StartPoint+(f*(SuperDiagrum.settings.Flet.wide)-(SuperDiagrum.settings.Flet.wide/2)),
-                SuperDiagrum.settings.StartPoint+(s*SuperDiagrum.settings.String.wide), 
-                20, 
-                5
-            );
-            ctx.beginPath();
-            ctx.rotate( 135 * Math.PI / 180 );
-            ctx.fillRect( 
-                SuperDiagrum.settings.StartPoint+(f*(SuperDiagrum.settings.Flet.wide)-(SuperDiagrum.settings.Flet.wide/2)),
-                SuperDiagrum.settings.StartPoint+(s*SuperDiagrum.settings.String.wide), 
-                20, 
-                5
-            );
-        }
+            ctx.lineWidth = 2;
+            ctx.moveTo( SuperDiagrum.settings.StartPoint+(SuperDiagrum.settings.Flet.wide/2)+(batuL/2),
+                       SuperDiagrum.settings.StartPoint+(s*SuperDiagrum.settings.String.wide)-(batuL/2));
+            ctx.lineTo(SuperDiagrum.settings.StartPoint+(SuperDiagrum.settings.Flet.wide/2)-(batuL/2),
+                       SuperDiagrum.settings.StartPoint+(s*SuperDiagrum.settings.String.wide)+(batuL/2));
+            ctx.closePath();
+            ctx.fillStyle = "rgb(0,0,0)";
+            ctx.moveTo( SuperDiagrum.settings.StartPoint+(SuperDiagrum.settings.Flet.wide/2)-(batuL/2),
+                       SuperDiagrum.settings.StartPoint+(s*SuperDiagrum.settings.String.wide)-(batuL/2));
+            ctx.lineTo(SuperDiagrum.settings.StartPoint+(SuperDiagrum.settings.Flet.wide/2)+(batuL/2),
+                       SuperDiagrum.settings.StartPoint+(s*SuperDiagrum.settings.String.wide)+(batuL/2));
+            ctx.closePath();
+            ctx.stroke();
+            }
 
 };
   
