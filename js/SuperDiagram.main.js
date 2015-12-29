@@ -83,7 +83,3 @@ $(function () {
         collection:SuperDiagrum.coll
     });    
  });
-    
-    
-
-
