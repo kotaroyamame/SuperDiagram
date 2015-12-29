@@ -1,19 +1,19 @@
 window.SuperDiagrum={};
 SuperDiagrum.settings={
     StartPoint:100,
-    Flet:{"wide":60,"size":5},
+    Flet:{"wide":60,"size":7},
     String:{"wide":20,"size":6}
 };
 SuperDiagrum.functions=function(){};
 SuperDiagrum.functions.prototype={
         init:function(){
-            SuperDiagrum.settings.Flet.hight=SuperDiagrum.settings.String.wide*(SuperDiagrum.settings.Flet.size);
+            SuperDiagrum.settings.Flet.hight=SuperDiagrum.settings.String.wide*(SuperDiagrum.settings.String.size-1);
         },
         drowString:function(ctx){
             ctx.beginPath();
             for(var i=0;i<SuperDiagrum.settings.String.size;i++){
             ctx.moveTo( SuperDiagrum.settings.StartPoint, SuperDiagrum.settings.StartPoint + (i*SuperDiagrum.settings.String.wide));
-            ctx.lineTo( 500, SuperDiagrum.settings.StartPoint + (i*SuperDiagrum.settings.String.wide));
+            ctx.lineTo( SuperDiagrum.settings.Flet.wide*(SuperDiagrum.settings.Flet.size+2), SuperDiagrum.settings.StartPoint + (i*SuperDiagrum.settings.String.wide));
             ctx.closePath();
             }
             ctx.stroke();
@@ -22,7 +22,7 @@ SuperDiagrum.functions.prototype={
             ctx.beginPath();
             for(var i=0;i<SuperDiagrum.settings.Flet.size;i++){
             ctx.moveTo( SuperDiagrum.settings.StartPoint + (i*SuperDiagrum.settings.Flet.wide), SuperDiagrum.settings.StartPoint);
-            ctx.lineTo( SuperDiagrum.settings.StartPoint + (i*SuperDiagrum.settings.Flet.wide), 100+SuperDiagrum.settings.Flet.hight );
+            ctx.lineTo( SuperDiagrum.settings.StartPoint + (i*SuperDiagrum.settings.Flet.wide), SuperDiagrum.settings.StartPoint+SuperDiagrum.settings.Flet.hight );
             ctx.closePath();
             }
             ctx.stroke();
