@@ -44,12 +44,12 @@ SuperDiagrum.functions.prototype={
 
 };
   
-$(function () {    
-    
+$(function () {
     SuperDiagrum.Model=Backbone.Model.extend({
         initialize:function(){
             this.codeName=this.get('codeName');
-            this.codeData=this.get('codeData');
+            this.onFinger=this.get('onFinger');
+            this.mute=this.get('mute');
         }
     });
     SuperDiagrum.Coll=Backbone.Collection.extend({
@@ -104,14 +104,14 @@ $(function () {
         render:function(blockNO){
             var this_=this;
             var x = this_.collection.where({codeName:blockNO});
-            console.log(this_.collection.at(0).get("codeData")[0][0]);
+            console.log(this_.collection.at(0).get("onFinger")[0][0]);
             //var canvas = this.$el.eq(0);//document.getElementById( "stage" );
             var ctx = this.$el[0].getContext( "2d" );
             ctx.clearRect(0, 0, 2000, 1000);
             this_.functions.drowString(ctx);
             this_.functions.drowFlet(ctx);
-            for(var i=0;i<x[0].get("codeData").length;i++){
-            this_.functions.onpu(ctx,x[0].get("codeData")[i][0],x[0].get("codeData")[i][1]);
+            for(var i=0;i<x[0].get("onFinger").length;i++){
+            this_.functions.onpu(ctx,x[0].get("onFinger")[i][0],x[0].get("onFinger")[i][1]);
             };
             return this;
         }
