@@ -40,16 +40,42 @@ SuperDiagrum.functions.prototype={
                 false 
             );
             ctx.fill();
+        },
+        mute:function(ctx,s){
+            s--;
+            var f=1;
+            ctx.beginPath();
+            ctx.fillStyle = "rgb(0,0,0)";
+            ctx.rotate( 45 * Math.PI / 180 );
+            ctx.fillRect( 
+                SuperDiagrum.settings.StartPoint+(f*(SuperDiagrum.settings.Flet.wide)-(SuperDiagrum.settings.Flet.wide/2)),
+                SuperDiagrum.settings.StartPoint+(s*SuperDiagrum.settings.String.wide), 
+                20, 
+                5
+            );
+            ctx.beginPath();
+            ctx.rotate( 135 * Math.PI / 180 );
+            ctx.fillRect( 
+                SuperDiagrum.settings.StartPoint+(f*(SuperDiagrum.settings.Flet.wide)-(SuperDiagrum.settings.Flet.wide/2)),
+                SuperDiagrum.settings.StartPoint+(s*SuperDiagrum.settings.String.wide), 
+                20, 
+                5
+            );
         }
 
 };
   
 $(function () {
+    SuperDiagrum.Model2=Backbone.Model.extend({
+        initialize:function(){
+            this.onFinger=this.get('onFinger');
+            this.mute=this.get('mute');
+        }
+    });
     SuperDiagrum.Model=Backbone.Model.extend({
         initialize:function(){
             this.codeName=this.get('codeName');
-            this.onFinger=this.get('onFinger');
-            this.mute=this.get('mute');
+            this.data=new SuperDiagrum.Model2(this.get('data'));
         }
     });
     SuperDiagrum.Coll=Backbone.Collection.extend({
@@ -104,14 +130,17 @@ $(function () {
         render:function(blockNO){
             var this_=this;
             var x = this_.collection.where({codeName:blockNO});
-            console.log(this_.collection.at(0).get("onFinger")[0][0]);
+            console.log(this_.collection.at(0).get("data")["onFinger"][0][0]);
             //var canvas = this.$el.eq(0);//document.getElementById( "stage" );
             var ctx = this.$el[0].getContext( "2d" );
             ctx.clearRect(0, 0, 2000, 1000);
             this_.functions.drowString(ctx);
             this_.functions.drowFlet(ctx);
-            for(var i=0;i<x[0].get("onFinger").length;i++){
-            this_.functions.onpu(ctx,x[0].get("onFinger")[i][0],x[0].get("onFinger")[i][1]);
+            for(var i=0;i<x[0].get("data")["onFinger"].length;i++){
+            this_.functions.onpu(ctx,x[0].get("data")["onFinger"][i][0],x[0].get("data")["onFinger"][i][1]);
+            };
+            for(var i=0;i<x[0].get("data")["mute"].length;i++){
+            this_.functions.mute(ctx,x[0].get("data")["mute"][i]);
             };
             return this;
         }
