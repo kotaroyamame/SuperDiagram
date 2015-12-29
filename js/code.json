@@ -1,36 +1,30 @@
 [
     {
-    "codeName": "c",
-    "onFinger": [
-		[2, 1],
-		[4, 2],
-		[5, 3]
-	],
-    "mute":[6]
-}, {
-    "codeName": "a",
-    "onFinger": [
-		[2, 2],
-		[3, 2],
-		[4, 2]
-	],
-    "mute":[0]
-}, {
-    "codeName": "g",
-    "onFinger": [
-		[1, 3],
-		[5, 2],
-		[6, 3]
-	],
-    "mute":[0]
-}, {
-    "codeName": "e",
-    "onFinger": [
-		[3, 1],
-		[4, 2],
-		[5, 2]
-	],
-    "mute":[0]
-}
+        "codeName": "c",
+        "data": {
+            "onFinger": [[2, 1],[4, 2],[5, 3]],
+            "mute": [6]
+        }
+    },
+    {
+        "codeName": "a",
+        "data": {
+            "onFinger": [[2, 2],[3, 2],[4, 2]],
+            "mute": []
+        }
+    },
+    {
+        "codeName": "g",
+        "data": {
+            "onFinger": [[1, 3],[5, 2],[6, 3]],
+            "mute": []
+        }
+    },
+    {
+        "codeName": "e",
+        "data": {
+            "onFinger": [[3, 1],[4, 2],[5, 2]],
+            "mute": []
+        }
+    }
 ]
-
