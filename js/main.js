@@ -128,8 +128,7 @@ $(function () {
         render:function(blockNO){
             var this_=this;
             var x = this_.collection.where({codeName:blockNO});
-            console.log(this_.collection.at(0).get("data")["onFinger"][0][0]);
-            //var canvas = this.$el.eq(0);//document.getElementById( "stage" );
+            console.log(this_.collection.at(2).get("data")["onFinger"][0][0]);
             var ctx = this.$el[0].getContext( "2d" );
             ctx.clearRect(0, 0, 2000, 1000);
             this_.functions.drowString(ctx);
