@@ -98,6 +98,13 @@
         }
     },
     {
+        "codeName": "aM7",
+        "data": {
+            "onFinger": [[2, 2],[3, 1],[4, 2]],
+            "mute": [6]
+        }
+    },
+    {
         "codeName": "b",
         "data": {
             "onFinger": [[1, 2],[2, 4],[3,4],[4, 4],[5,2]],
@@ -122,6 +129,13 @@
         "codeName": "bm7",
         "data": {
             "onFinger": [[1, 2],[2, 3],[3,2],[4, 4],[5,2]],
+            "mute": [6]
+        }
+    },
+    {
+        "codeName": "bM7",
+        "data": {
+            "onFinger": [[1, 2],[2, 4],[3,3],[4, 4],[5,2]],
             "mute": [6]
         }
     },
@@ -154,6 +168,13 @@
         }
     },
     {
+        "codeName": "fM7",
+        "data": {
+            "onFinger": [[2, 1],[3,2],[4, 3],[5,3]],
+            "mute": [6]
+        }
+    },
+    {
         "codeName": "g",
         "data": {
             "onFinger": [[1, 3],[5, 2],[6, 3]],
@@ -182,6 +203,13 @@
         }
     },
     {
+        "codeName": "gM7",
+        "data": {
+            "onFinger": [[1, 2],[5, 2],[6, 3]],
+            "mute": []
+        }
+    },
+    {
         "codeName": "e",
         "data": {
             "onFinger": [[3, 1],[4, 2],[5, 2]],
@@ -206,6 +234,13 @@
         "codeName": "em7",
         "data": {
             "onFinger": [[5, 2]],
+            "mute": []
+        }
+    },
+    {
+        "codeName": "eM7",
+        "data": {
+            "onFinger": [[3,1],[4,1],[5, 2]],
             "mute": []
         }
     }
