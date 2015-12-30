@@ -3,43 +3,65 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Untitled Document</title>
+    <title>SuperDiagram</title>
     <meta name="Author" content="" />
-    <link rel="stylesheet" type="text/css" href="style.css">
     <script src="js/lib/jquery1.11.3.js"></script>
     <script src="js/lib/Underscore.js"></script>
     <script src="js/lib/backbone-min.js"></script>
     <script src="js/SuperDiagram.functions.js"></script>
     <script src="js/SuperDiagram.main.js"></script>
     <style>
-
+        .wrap{
+            width: 500px;
+            margin: auto;
+        }
+        input[type=radio] {
+          display: none; 
+        }
+        input[type=radio]+label {
+            margin: 5px;
+            display: block;
+            float: left;
+            text-align: center;
+            background-color: #aaffaa;
+            border: 1px solid #aaeeaa;
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+        }
+        input[type=radio]+label:hover {
+            background-color: #aaee99;
+        }
+        input[type=radio]:checked+label {
+            background-color: aqua;
+        }
 
     </style>
 </head>
 
 <body>
     <canvas id="stage" width="800" height="300"></canvas>
-    <div>
-        <input class="codename" type="radio" name="code" value="c" checked="checked" />C
-        <input class="codename" type="radio" name="code" value="c7" />C7
-        <input class="codename" type="radio" name="code" value="cm" />Cm
-        <input class="codename" type="radio" name="code" value="cm7" />Cm7
-        <input class="codename" type="radio" name="code" value="d" />D
-        <input class="codename" type="radio" name="code" value="d7" />D7
-        <input class="codename" type="radio" name="code" value="dm" />Dm
-        <input class="codename" type="radio" name="code" value="dm7" />Dm7
-        <input class="codename" type="radio" name="code" value="a" />A
-        <input class="codename" type="radio" name="code" value="a7" />A7
-        <input class="codename" type="radio" name="code" value="am" />Am
-        <input class="codename" type="radio" name="code" value="am7" />Am7
-        <input class="codename" type="radio" name="code" value="g" />G
-        <input class="codename" type="radio" name="code" value="g7" />G7
-        <input class="codename" type="radio" name="code" value="gm" />Gm
-        <input class="codename" type="radio" name="code" value="gm7" />Gm7
-        <input class="codename" type="radio" name="code" value="e" />E
-        <input class="codename" type="radio" name="code" value="e7" />E7
-        <input class="codename" type="radio" name="code" value="em" />Em
-        <input class="codename" type="radio" name="code" value="em7" />Em7
+    <div class="wrap">
+        <input class="codename" type="radio" name="code" value="c" checked="checked" id="c" /><label for="c">C</label>
+        <input class="codename" type="radio" name="code" value="c7" id="c7" /><label for="c7">C7</label>
+        <input class="codename" type="radio" name="code" value="cm" id="cm" /><label for="cm">Cm</label>
+        <input class="codename" type="radio" name="code" value="cm7" id="cm7" /><label for="cm7">Cm7</label>
+        <input class="codename" type="radio" name="code" value="d" id="d" /><label for="d">D</label>
+        <input class="codename" type="radio" name="code" value="d7" id="d7" /><label for="d7">D7</label>
+        <input class="codename" type="radio" name="code" value="dm" id="dm" /><label for="dm">Dm</label>
+        <input class="codename" type="radio" name="code" value="dm7" id="dm7" /><label for="dm7">Dm7</label>
+        <input class="codename" type="radio" name="code" value="a" id="a" /><label for="a">A</label>
+        <input class="codename" type="radio" name="code" value="a7" id="a7" /><label for="a7">A7</label>
+        <input class="codename" type="radio" name="code" value="am" id="am" /><label for="am">Am</label>
+        <input class="codename" type="radio" name="code" value="am7" id="am7" /><label for="am7">Am7</label>
+        <input class="codename" type="radio" name="code" value="g" id="g" /><label for="g">G</label>
+        <input class="codename" type="radio" name="code" value="g7" id="g7" /><label for="g7">G7</label>
+        <input class="codename" type="radio" name="code" value="gm" id="gm" /><label for="gm">Gm</label>
+        <input class="codename" type="radio" name="code" value="gm7" id="gm7" /><label for="gm7">Gm7</label>
+        <input class="codename" type="radio" name="code" value="e" id="e" /><label for="e">E</label>
+        <input class="codename" type="radio" name="code" value="e7" id="e7" /><label for="e7">E7</label>
+        <input class="codename" type="radio" name="code" value="em" id="em" /><label for="em">Em</label>
+        <input class="codename" type="radio" name="code" value="em7" id="em7" /><label for="em7">Em7</label>
     </div>
 </body>
 

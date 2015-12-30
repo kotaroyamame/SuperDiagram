@@ -12,20 +12,26 @@ SuperDiagrum.functions.prototype={
         drowString:function(ctx){
             ctx.beginPath();
             for(var i=0;i<SuperDiagrum.settings.String.size;i++){
-            ctx.moveTo( SuperDiagrum.settings.StartPoint, SuperDiagrum.settings.StartPoint + (i*SuperDiagrum.settings.String.wide));
-            ctx.lineTo( SuperDiagrum.settings.Flet.wide*(SuperDiagrum.settings.Flet.size+2), SuperDiagrum.settings.StartPoint + (i*SuperDiagrum.settings.String.wide));
-            ctx.closePath();
+                ctx.moveTo( SuperDiagrum.settings.StartPoint, SuperDiagrum.settings.StartPoint + (i*SuperDiagrum.settings.String.wide));
+                ctx.lineTo( SuperDiagrum.settings.Flet.wide*(SuperDiagrum.settings.Flet.size+2), SuperDiagrum.settings.StartPoint + (i*SuperDiagrum.settings.String.wide));
+                ctx.closePath();
             }
             ctx.stroke();
         },
         drowFlet:function(ctx){
             ctx.beginPath();
             for(var i=0;i<SuperDiagrum.settings.Flet.size;i++){
-            ctx.moveTo( SuperDiagrum.settings.StartPoint + (i*SuperDiagrum.settings.Flet.wide), SuperDiagrum.settings.StartPoint);
-            ctx.lineTo( SuperDiagrum.settings.StartPoint + (i*SuperDiagrum.settings.Flet.wide), SuperDiagrum.settings.StartPoint+SuperDiagrum.settings.Flet.hight );
-            ctx.closePath();
+                if(i==0){
+                    ctx.lineWidth = 5;
+                }else{
+                    ctx.lineWidth = 1;
+                };
+                ctx.moveTo( SuperDiagrum.settings.StartPoint + (i*SuperDiagrum.settings.Flet.wide), SuperDiagrum.settings.StartPoint);
+                ctx.lineTo( SuperDiagrum.settings.StartPoint + (i*SuperDiagrum.settings.Flet.wide), SuperDiagrum.settings.StartPoint+SuperDiagrum.settings.Flet.hight );
+                ctx.closePath();
+                ctx.stroke();
             }
-            ctx.stroke();
+            
         },
         onpu:function(ctx,s,f){
             s--;
