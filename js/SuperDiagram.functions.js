@@ -1,8 +1,8 @@
 window.SuperDiagrum={};
 SuperDiagrum.settings={
-    StartPoint:100,
-    Flet:{"wide":60,"size":7},
-    String:{"wide":20,"size":6}
+    StartPoint:60,
+    Flet:{"wide":64,"size":7},
+    String:{"wide":30,"size":6}
 };
 SuperDiagrum.functions=function(){};
 SuperDiagrum.functions.prototype={
@@ -53,15 +53,15 @@ SuperDiagrum.functions.prototype={
             ctx.beginPath();
             ctx.fillStyle = "rgb(0,0,0)";
             ctx.lineWidth = 2;
-            ctx.moveTo( SuperDiagrum.settings.StartPoint+(SuperDiagrum.settings.Flet.wide/2)+(batuL/2),
+            ctx.moveTo( SuperDiagrum.settings.StartPoint-(SuperDiagrum.settings.Flet.wide/2)+(batuL/2),
                        SuperDiagrum.settings.StartPoint+(s*SuperDiagrum.settings.String.wide)-(batuL/2));
-            ctx.lineTo(SuperDiagrum.settings.StartPoint+(SuperDiagrum.settings.Flet.wide/2)-(batuL/2),
+            ctx.lineTo(SuperDiagrum.settings.StartPoint-(SuperDiagrum.settings.Flet.wide/2)-(batuL/2),
                        SuperDiagrum.settings.StartPoint+(s*SuperDiagrum.settings.String.wide)+(batuL/2));
             ctx.closePath();
             ctx.fillStyle = "rgb(0,0,0)";
-            ctx.moveTo( SuperDiagrum.settings.StartPoint+(SuperDiagrum.settings.Flet.wide/2)-(batuL/2),
+            ctx.moveTo( SuperDiagrum.settings.StartPoint-(SuperDiagrum.settings.Flet.wide/2)-(batuL/2),
                        SuperDiagrum.settings.StartPoint+(s*SuperDiagrum.settings.String.wide)-(batuL/2));
-            ctx.lineTo(SuperDiagrum.settings.StartPoint+(SuperDiagrum.settings.Flet.wide/2)+(batuL/2),
+            ctx.lineTo(SuperDiagrum.settings.StartPoint-(SuperDiagrum.settings.Flet.wide/2)+(batuL/2),
                        SuperDiagrum.settings.StartPoint+(s*SuperDiagrum.settings.String.wide)+(batuL/2));
             ctx.closePath();
             ctx.stroke();
