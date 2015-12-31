@@ -11,6 +11,13 @@
     <script src="js/SuperDiagram.functions.js"></script>
     <script src="js/SuperDiagram.main.js"></script>
     <style>
+        .textfield{
+            margin: auto;
+            width: 600px;
+            height: auto;
+            text-align: center;
+            font-size: 30px;
+        }
         .stageWrap{
             margin: auto;
             width: 600px;
@@ -19,6 +26,25 @@
         .wrap{
             width: 600px;
             margin: auto;
+        }
+        .wrap.wrap2{
+            width: 430px;
+            margin: 10px auto;
+        }
+        .correct{
+            position: fixed;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.8);
+            text-align: center;
+            opacity: 0;
+            display: none;
+        }
+        .correct p{
+            font-size: 30px;
+            line-height: 50px;
         }
         input[type=radio] {
           display: none; 
@@ -40,16 +66,38 @@
         input[type=radio]:checked+label {
             background-color: aqua;
         }
+        .mode+label{
+            width: 200px !important;
+            height: 40px !important;
+        }
+        .red{
+        color: red;
+        }
+        .f50{
+        font-size: 50px !important;
+        }
+        .clearfix:after {
+            content: "";
+            clear: both;
+            display: block;
+        }
 
     </style>
 </head>
 
 <body>
+    <div class="wrap wrap2 clearfix">
+        <input class="mode" type="radio" name="mode" value="practice" id="practice" /><label for="practice">プラクティスモード</label>
+        <input class="mode" type="radio" name="mode" value="quize" id="quize" /><label for="quize">クイズモード</label>
+    </div>
+    <div class="textfield"></div>
         <div class="stageWrap">
             <canvas id="stage" width="600" height="300"></canvas>
+            <div class="correct"><p id="text1" class="red f50">正解</p><p>次の問題→</p><p id="text2"></p></div>
         </div>
-    <div class="wrap">
-        <input class="codename" type="radio" name="code" value="c" checked="checked" id="c" /><label for="c">C</label>
+    
+    <div class="wrap clearfix">
+        <input class="codename" type="radio" name="code" value="c" id="c" /><label for="c">C</label>
         <input class="codename" type="radio" name="code" value="c7" id="c7" /><label for="c7">C7</label>
         <input class="codename" type="radio" name="code" value="cm" id="cm" /><label for="cm">Cm</label>
         <input class="codename" type="radio" name="code" value="cm7" id="cm7" /><label for="cm7">Cm7</label>

@@ -20,7 +20,7 @@ $(function () {
 	   } 
     });
 
-    SuperDiagrum.Container=Backbone.View.extend({
+    SuperDiagrum.View=Backbone.View.extend({
         el:'#stage',
         initialize:function(){
             var this_=this;
@@ -30,10 +30,13 @@ $(function () {
             this_.functions.init();
             this_.collection.fetch({
                 success:function(){
-                    this_.eventListener();
+                    this_.modeChange();
+                     $(".mode").on("change",function(){
+                        this_.modeChange();
+                    });
                 },
                 error:function(){
-                alert("error");
+                    console.log("error");
                 }
             });
         },
@@ -52,18 +55,71 @@ $(function () {
                 this_.setsize();
             },400);       
         },
-        eventListener:function(){
+        randomRender:function(){
             var this_=this;
+            var rand=Math.floor(Math.random()*$(".codename").length);
+            this_.render($(".codename").eq(rand).val());
+        
+        },
+        practice:function(){
+            var this_=this;
+            $(".textfield").text("プラクティスモード");
             this_.render($(".codename:checked").val());
-             $(".codename").change(function(){
-                 this_.render($(this).val());
+            $(".codename").off();
+            $(".codename").on("change",function(){
+                this_.render($(this).val());
+            });
+        
+        },
+        quize:function(){
+            var this_=this;
+            $(".textfield").text("クイズモード　以下のコードはなに？？");
+            this_.randomRender();
+           
+            $(".codename").off();
+            $(".codename").on("click",function(){
+                var ans=SuperDiagrum.settings.blockNO.charAt(0).toUpperCase() + SuperDiagrum.settings.blockNO.slice(1);
+                $(".correct").off();
+                if($(this).val()==SuperDiagrum.settings.blockNO){
+                    
+                    $("#text1").text("正解◯");
+                    $("#text2").text("その通り！正解は"+ans+"です");
+                    $(".correct").css({display:"block"}).animate({opacity:1});
+                    $(".correct").on("click",function(){
+                        this_.randomRender();
+                         $(this).animate({opacity:0},500,function(){
+                         $(this).css({display:"none"});
+                         });
+                    });
+                }else{
+                    
+                    $("#text1").text("間違い☓");
+                    $("#text2").text("正解は"+ans+"です");
+                    $(".correct").css({display:"block"}).animate({opacity:1});
+                    $(".correct").on("click",function(){
+                        this_.randomRender();
+                         $(this).animate({opacity:0},500,function(){
+                         $(this).css({display:"none"});
+                         });
+                    });
+                };
+            });
+        },
+        modeChange:function(){
+            var this_=this;
+                if($(".mode:checked").val()=="practice"){
+                    this_.practice();
+                }else{
+                    this_.quize();
+                };
              
-             });
         },
         render:function(blockNO){
+            if(blockNO!=null){
+                SuperDiagrum.settings.blockNO=blockNO;
+            };
             var this_=this;
             var x = this_.collection.where({codeName:blockNO});
-            console.log(this_.collection.at(2).get("data")["onFinger"][0][0]);
             var ctx = this.$el[0].getContext( "2d" );
             ctx.clearRect(0, 0, 2000, 1000);
             this_.functions.drowString(ctx);
@@ -79,7 +135,7 @@ $(function () {
     });
     
     SuperDiagrum.coll=new SuperDiagrum.Coll();
-    SuperDiagrum.container=new SuperDiagrum.Container({
+    SuperDiagrum.view=new SuperDiagrum.View({
         collection:SuperDiagrum.coll
-    });    
+    }); 
  });
