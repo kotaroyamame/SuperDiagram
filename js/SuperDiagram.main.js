@@ -1,14 +1,9 @@
 $(function () {
-    SuperDiagrum.Model2=Backbone.Model.extend({
-        initialize:function(){
-            this.onFinger=this.get('onFinger');
-            this.mute=this.get('mute');
-        }
-    });
     SuperDiagrum.Model=Backbone.Model.extend({
         initialize:function(){
             this.codeName=this.get('codeName');
-            this.data=new SuperDiagrum.Model2(this.get('data'));
+            this.onFinger=this.get('onFinger');
+            this.mute=this.get('mute');
         }
     });
     SuperDiagrum.Coll=Backbone.Collection.extend({
@@ -25,8 +20,6 @@ $(function () {
         initialize:function(){
             var this_=this;
             this_.functions=new SuperDiagrum.functions();
-//            $(window).on('load',$.proxy(this,'render'));
-//            $(window).on('resize',$.proxy(this,'onresize'));
             this_.functions.init();
             this_.collection.fetch({
                 success:function(){
@@ -40,9 +33,6 @@ $(function () {
                 }
             });
         },
-//        events:{
-//            "click .tileBlock":"onclick"
-//        },
         onclick:function(e){
             this.render(this.$el.find(".tileBlock").index(e));
         },
@@ -124,11 +114,11 @@ $(function () {
             ctx.clearRect(0, 0, 2000, 1000);
             this_.functions.drowString(ctx);
             this_.functions.drowFlet(ctx);
-            for(var i=0;i<x[0].get("data")["onFinger"].length;i++){
-            this_.functions.onpu(ctx,x[0].get("data")["onFinger"][i][0],x[0].get("data")["onFinger"][i][1]);
+            for(var i=0;i<x[0].get("onFinger").length;i++){
+            this_.functions.onpu(ctx,x[0].get("onFinger")[i][0],x[0].get("onFinger")[i][1]);
             };
-            for(var i=0;i<x[0].get("data")["mute"].length;i++){
-            this_.functions.mute(ctx,x[0].get("data")["mute"][i]);
+            for(var i=0;i<x[0].get("mute").length;i++){
+            this_.functions.mute(ctx,x[0].get("mute")[i]);
             };
             return this;
         }
